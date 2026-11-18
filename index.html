@@ -1,0 +1,840 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Fauzia Waita (Zhiaa)</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream-dark: #c6a15b;
+  --cream-primary: #2a2117;
+  --cream-medium: #332719;
+  --cream-light: #17130f;
+  --white-pure: #211a12;
+  --accent-warm: #d6b46a;
+  --text-dark: #f3e6c8;
+  --text-muted: #c3ae83;
+  --border-soft: rgba(214,180,106,.32);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: var(--cream-light);
+  color: var(--text-dark);
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+/* WELCOME MARQUEE */
+
+.welcome-marquee {
+  background: linear-gradient(90deg,#17130f,#3a2b18,#17130f);
+  color: var(--text-dark);
+  padding: 12px 0;
+  overflow: hidden;
+  border-bottom: 1.5px solid var(--border-soft);
+  box-shadow: 0 4px 14px rgba(158,130,103,.12);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: moveLeftToRight 16s linear infinite;
+}
+
+.welcome-marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2rem;
+  letter-spacing: 1.5px;
+  padding: 0 50px;
+  white-space: nowrap;
+  color: #e4c477;
+}
+
+@keyframes moveLeftToRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* HERO */
+
+.hero {
+  background: radial-gradient(
+    circle at top,
+    #49371d 0%,
+    #2a2117 48%,
+    #17130f 100%
+  );
+  text-align: center;
+  padding: 50px 20px 60px;
+  border-bottom-left-radius: 36px;
+  border-bottom-right-radius: 36px;
+  border-bottom: 1.5px solid var(--border-soft);
+  box-shadow: 0 12px 28px rgba(158,130,103,.15);
+}
+
+/* FOTO PROFIL BULAT TANPA CROP */
+
+.profile-wrapper {
+  position: relative;
+  width: 175px;
+  height: 175px;
+  margin: 0 auto 22px;
+  animation: pulseSize 3.2s ease-in-out infinite;
+}
+
+@keyframes pulseSize {
+  0%,100% { transform: scale(.95); }
+  50% { transform: scale(1.06); }
+}
+
+.profile-ring {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 6px;
+  background: linear-gradient(
+    135deg,
+    #f5d782,
+    #b8860b,
+    #d4af37,
+    #f5d782
+  );
+  box-shadow: 0 10px 26px rgba(212,175,55,.3);
+  overflow: hidden;
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  background-color: var(--cream-dark);
+}
+
+.upload-avatar-btn {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: var(--white-pure);
+  color: var(--text-dark);
+  border: 2px solid var(--cream-dark);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(158,130,103,.25);
+  transition: transform .2s ease;
+}
+
+.upload-avatar-btn:hover {
+  transform: scale(1.1);
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: .5px;
+  margin-bottom: 6px;
+  color: var(--text-dark);
+}
+
+.hero .subtitle {
+  color: var(--text-muted);
+  font-size: .98rem;
+  font-weight: 600;
+  letter-spacing: .4px;
+}
+
+.hero .hint-text {
+  margin-top: 16px;
+  font-size: .85rem;
+  color: var(--text-muted);
+  background: rgba(255,255,255,.08);
+  display: inline-block;
+  padding: 6px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+}
+
+/* CONTAINER */
+
+.container {
+  max-width: 820px;
+  margin: 34px auto 60px;
+  padding: 0 18px;
+}
+
+/* ACCORDION */
+
+.accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.accordion-item {
+  background: var(--white-pure);
+  border-radius: 18px;
+  border: 1.5px solid var(--border-soft);
+  box-shadow: 0 6px 20px rgba(158,130,103,.08);
+  overflow: hidden;
+  transition: .3s ease;
+}
+
+.accordion-item.active {
+  border-color: var(--cream-dark);
+  box-shadow: 0 10px 28px rgba(158,130,103,.16);
+}
+
+.accordion-header {
+  width: 100%;
+  background: linear-gradient(135deg,#292015 0%,#1d1711 100%);
+  border: none;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+  transition: background .3s ease;
+}
+
+.accordion-item.active .accordion-header {
+  background: linear-gradient(135deg,#5a4320,#342717);
+}
+
+.accordion-title-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.accordion-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--cream-medium);
+  color: var(--accent-warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.accordion-item.active .accordion-icon {
+  background: #49371d;
+}
+
+.accordion-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.accordion-arrow {
+  font-size: 1rem;
+  color: var(--accent-warm);
+  transition: transform .35s ease;
+  font-weight: bold;
+}
+
+.accordion-item.active .accordion-arrow {
+  transform: rotate(180deg);
+  color: var(--text-dark);
+}
+
+/* CONTENT */
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .45s ease;
+  background: var(--white-pure);
+}
+
+.accordion-body {
+  padding: 26px 26px 30px;
+  border-top: 1px solid var(--border-soft);
+}
+
+/* BIODATA */
+
+.biodata-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.bio-row {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px;
+  background: #2a2117;
+  border-left: 4px solid var(--cream-dark);
+  border-radius: 10px;
+}
+
+.bio-label {
+  font-weight: 700;
+  color: var(--accent-warm);
+  font-size: .95rem;
+}
+
+.bio-value {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+@media(min-width:600px) {
+  .bio-row {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .bio-label {
+    width: 190px;
+    flex-shrink: 0;
+  }
+}
+
+/* CERITA */
+
+.story-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: var(--text-dark);
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--cream-primary);
+}
+
+.story-text p {
+  margin-bottom: 15px;
+  text-align: justify;
+  color: var(--text-dark);
+  font-size: .98rem;
+}
+
+.story-text p:last-child {
+  margin-bottom: 0;
+}
+
+.quote-highlight {
+  margin-top: 18px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg,#332719,#211a12);
+  border-left: 4px solid var(--cream-dark);
+  border-radius: 12px;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+/* HOMETOWN */
+
+.hometown-gallery {
+  margin-bottom: 22px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1.5px solid var(--border-soft);
+  box-shadow: 0 8px 22px rgba(158,130,103,.12);
+}
+
+.hometown-gallery img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-caption {
+  background: var(--cream-medium);
+  color: var(--text-dark);
+  padding: 10px 16px;
+  font-size: .88rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  border-top: 1px solid var(--border-soft);
+}
+
+.change-photo-btn {
+  background: var(--white-pure);
+  color: var(--text-dark);
+  border: 1px solid var(--cream-dark);
+  padding: 5px 12px;
+  border-radius: 8px;
+  font-size: .8rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  padding: 24px 16px;
+  background: #2a2117;
+  color: var(--text-muted);
+  font-size: .9rem;
+  border-top: 1px solid var(--border-soft);
+}
+
+footer span {
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:520px) {
+  .profile-wrapper {
+    width: 175px;
+    height: 175px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .accordion-header {
+    padding: 16px;
+  }
+
+  .accordion-body {
+    padding: 20px 18px;
+  }
+
+  .accordion-title {
+    font-size: 1.1rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- WELCOME -->
+
+<div class="welcome-marquee">
+  <div class="marquee-track">
+    <span class="marquee-text">✨ Selamat Datang di Website Zhiaa ✨</span>
+    <span class="marquee-text">✨ Selamat Datang di Website Zhiaa ✨</span>
+    <span class="marquee-text">✨ Selamat Datang di Website Zhiaa ✨</span>
+    <span class="marquee-text">✨ Selamat Datang di Website Zhiaa ✨</span>
+  </div>
+</div>
+
+<!-- PROFIL -->
+
+<header class="hero">
+
+  <div class="profile-wrapper">
+    <div class="profile-ring">
+      <img
+        id="profilePreview"
+        class="profile-img"
+        src="foto-fauzia.jpg"
+        alt="Foto Profil Fauzia Waita"
+      >
+    </div>
+
+    <label for="avatarInput"
+      class="upload-avatar-btn"
+      title="Ganti Foto Profil">📷</label>
+
+    <input type="file" id="avatarInput" accept="image/*" hidden>
+  </div>
+
+  <h1>Fauzia Waita</h1>
+
+  <p class="subtitle">
+    Mahasiswa Informatika • Universitas Nahdlatul Ulama Al Ghazali Cilacap
+  </p>
+
+  <div class="hint-text">
+    Klik judul di bawah ini untuk melihat informasi selengkapnya
+  </div>
+
+</header>
+
+<!-- MENU UTAMA -->
+
+<main class="container">
+<div class="accordion-list">
+
+<!-- 1. BIODATA -->
+
+<section class="accordion-item">
+
+<button class="accordion-header" type="button">
+  <div class="accordion-title-group">
+    <div class="accordion-icon">👤</div>
+    <span class="accordion-title">BIODATA</span>
+  </div>
+  <span class="accordion-arrow">▼</span>
+</button>
+
+<div class="accordion-content">
+<div class="accordion-body">
+<div class="biodata-grid">
+
+<div class="bio-row">
+<span class="bio-label">Nama</span>
+<span class="bio-value">Fauzia Waita</span>
+</div>
+
+<div class="bio-row">
+<span class="bio-label">NIM</span>
+<span class="bio-value">255211035</span>
+</div>
+
+<div class="bio-row">
+<span class="bio-label">Status</span>
+<span class="bio-value">Mahasiswa</span>
+</div>
+
+<div class="bio-row">
+<span class="bio-label">Program Studi</span>
+<span class="bio-value">Informatika</span>
+</div>
+
+<div class="bio-row">
+<span class="bio-label">Fakultas</span>
+<span class="bio-value">Matematika dan Ilmu Komputer</span>
+</div>
+
+<div class="bio-row">
+<span class="bio-label">Perguruan Tinggi</span>
+<span class="bio-value">
+Universitas Nahdlatul Ulama Al Ghazali Cilacap
+</span>
+</div>
+
+<div class="bio-row">
+<span class="bio-label">Semester</span>
+<span class="bio-value">3</span>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- 2. ABOUT ME -->
+
+<section class="accordion-item">
+
+<button class="accordion-header" type="button">
+  <div class="accordion-title-group">
+    <div class="accordion-icon">✨</div>
+    <span class="accordion-title">ABOUT ME</span>
+  </div>
+  <span class="accordion-arrow">▼</span>
+</button>
+
+<div class="accordion-content">
+<div class="accordion-body story-text">
+
+<p>
+Halo! Perkenalkan, nama saya Fauzia Waita. Saya merupakan mahasiswa Program Studi Informatika, Fakultas Matematika dan Ilmu Komputer, Universitas Nahdlatul Ulama Al Ghazali Cilacap.
+</p>
+
+<p>
+Saat ini saya sedang menempuh pendidikan di semester 3. Saya memiliki ketertarikan dalam bidang teknologi informasi, khususnya pengembangan teknologi, pemrograman, dan dunia informatika.
+</p>
+
+<p>
+Saya senantiasa berusaha untuk terus belajar, mengembangkan kemampuan, menambah pengalaman, serta meningkatkan kreativitas agar dapat menjadi pribadi yang berkompeten dan mampu mengikuti perkembangan teknologi di masa depan.
+</p>
+
+</div>
+</div>
+</section>
+
+<!-- 3. LATAR BELAKANG -->
+
+<section class="accordion-item">
+
+<button class="accordion-header" type="button">
+  <div class="accordion-title-group">
+    <div class="accordion-icon">🤍</div>
+    <span class="accordion-title">LATAR BELAKANG</span>
+  </div>
+  <span class="accordion-arrow">▼</span>
+</button>
+
+<div class="accordion-content">
+<div class="accordion-body story-text">
+
+<p>
+Saya adalah anak ketiga dari lima bersaudara. Terlahir dan tumbuh dalam sebuah keluarga yang mengajarkan saya arti perjuangan, tanggung jawab, kesabaran, dan kerja keras. Dalam perjalanan hidup saya, sosok ayah menjadi salah satu sumber kekuatan dan motivasi terbesar. Saya melihat bagaimana beliau berjuang dengan kuat demi keluarga, tanpa mudah menyerah dalam menghadapi berbagai tantangan kehidupan.
+</p>
+
+<p>
+Dari sosok ayah, saya belajar bahwa kesuksesan tidak datang dengan mudah, melainkan membutuhkan usaha, doa, kesabaran, dan tekad yang kuat. Perjuangan beliau menjadi alasan bagi saya untuk terus melangkah, berusaha, dan tidak mudah menyerah dalam mengejar cita-cita.
+</p>
+
+<p>
+Saat ini, saya sedang menempuh pendidikan sebagai mahasiswa Program Studi Informatika di Universitas Nahdlatul Ulama Al Ghazali Cilacap. Saya menyadari bahwa perjalanan untuk mencapai impian masih panjang. Namun, saya ingin membuktikan bahwa setiap usaha dan pengorbanan yang dilakukan tidak akan sia-sia.
+</p>
+
+<p>
+Saya ingin menjadi seseorang yang sukses, membanggakan kedua orang tua, dan mampu membalas segala perjuangan mereka, terutama ayah yang selalu menjadi inspirasi dalam hidup saya.
+</p>
+
+<p>
+Bagi saya, ayah bukan hanya sosok orang tua, tetapi juga alasan untuk terus kuat, berjuang, dan tidak berhenti bermimpi.
+</p>
+
+</div>
+</div>
+</section>
+
+<!-- 4. MY ACADEMIC JOURNEY -->
+
+<section class="accordion-item">
+
+<button class="accordion-header" type="button">
+  <div class="accordion-title-group">
+    <div class="accordion-icon">🎓</div>
+    <span class="accordion-title">MY ACADEMIC JOURNEY</span>
+  </div>
+  <span class="accordion-arrow">▼</span>
+</button>
+
+<div class="accordion-content">
+<div class="accordion-body story-text">
+
+<h3 class="story-heading">
+Perjalanan Pendidikan dan Mimpi untuk Papua
+</h3>
+
+<p>
+Perjalanan akademik saya hingga bisa menempuh pendidikan tinggi di Universitas Nahdlatul Ulama Al Ghazali (UNUGHA) Cilacap merupakan sebuah kesempatan berharga yang tidak pernah saya anggap sebagai hal biasa. Saya bisa berada di bangku perkuliahan di tanah Jawa berkat kesempatan melalui program Majelis Ulama Indonesia (MUI) Kabupaten Kaimana, Papua Barat.
+</p>
+
+<p>
+Di balik perjalanan ini, ada tiga sosok laki-laki hebat yang memiliki peran penting dalam membuka jalan bagi kami, anak-anak Papua, untuk mendapatkan kesempatan belajar dan melanjutkan pendidikan ke jenjang perguruan tinggi di tanah Jawa. Mereka adalah Bapak Ust. Zein Farisa, Bapak Safar Furuada, dan Bapak Nurul Huda. Saya sangat bersyukur atas kepedulian, kepercayaan, serta kesempatan yang telah mereka berikan. Bagi saya, mereka bukan sekadar orang-orang yang memberikan kesempatan pendidikan, tetapi juga sosok yang turut membuka harapan dan masa depan bagi generasi muda Papua.
+</p>
+
+<p>
+Alasan saya memilih Program Studi Informatika bukan tanpa tujuan. Saya melihat bahwa perkembangan teknologi informasi di Papua, khususnya di beberapa wilayah, masih menghadapi berbagai keterbatasan, baik dari segi akses, fasilitas, infrastruktur, maupun pemerataan pemanfaatan teknologi. Kondisi tersebut menumbuhkan keinginan dalam diri saya untuk mempelajari dan memperdalam ilmu teknologi agar suatu saat nanti dapat ikut berkontribusi dalam memajukan daerah asal saya.
+</p>
+
+<p>
+Saya percaya bahwa teknologi memiliki peran penting dalam membuka peluang kemajuan di berbagai bidang, seperti pendidikan, ekonomi, pelayanan masyarakat, dan pembangunan daerah. Oleh karena itu, saya ingin menjadikan ilmu yang saya pelajari selama perkuliahan sebagai bekal untuk membawa perubahan positif bagi Papua.
+</p>
+
+<p>
+Bagi saya, merantau dari Papua ke tanah Jawa bukan hanya tentang mengejar gelar sarjana, tetapi juga tentang membawa harapan, tanggung jawab, dan impian besar untuk masa depan. Saya ingin membuktikan bahwa anak-anak Papua juga mampu berkembang, bersaing, dan berkontribusi dalam dunia teknologi.
+</p>
+
+<p>
+Saya datang dari Papua dengan membawa mimpi, belajar di tanah Jawa dengan penuh perjuangan, dan berharap suatu hari nanti dapat kembali membawa ilmu untuk membangun tanah kelahiran saya.
+</p>
+
+<div class="quote-highlight">
+“Dari Papua untuk masa depan yang lebih maju.”
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- 5. MY HOMETOWN -->
+
+<section class="accordion-item">
+
+<button class="accordion-header" type="button">
+  <div class="accordion-title-group">
+    <div class="accordion-icon">🏝️</div>
+    <span class="accordion-title">MY HOMETOWN</span>
+  </div>
+  <span class="accordion-arrow">▼</span>
+</button>
+
+<div class="accordion-content">
+<div class="accordion-body story-text">
+
+<h3 class="story-heading">
+Kaimana, West Papua – The Place I Call Home
+</h3>
+
+<div class="hometown-gallery">
+
+<img
+  id="kaimanaPreview"
+  src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1000&q=80"
+  alt="Pesona Alam Laut Kaimana, Papua Barat"
+>
+
+<div class="gallery-caption">
+<span>📍 Kaimana, Papua Barat — Kota Senja</span>
+
+<label for="kaimanaInput" class="change-photo-btn">
+Ganti Foto Kaimana
+</label>
+
+<input type="file" id="kaimanaInput" accept="image/*" hidden>
+
+</div>
+</div>
+
+<p>
+Kaimana, Papua Barat, adalah tempat yang selalu memiliki ruang istimewa di dalam hati saya. Di sanalah cerita kehidupan saya dimulai, tempat saya tumbuh, mengenal arti keluarga, persahabatan, kebersamaan, dan belajar tentang kehidupan. Bagi saya, Kaimana bukan sekadar sebuah daerah tempat saya berasal, melainkan rumah yang menyimpan begitu banyak kenangan berharga yang tidak akan pernah tergantikan.
+</p>
+
+<p>
+Ada banyak hal sederhana di Kaimana yang selalu saya rindukan. Suasana kampung halaman, kebersamaan bersama keluarga, canda tawa bersama saudara dan teman-teman, serta momen-momen kecil yang dahulu mungkin terlihat biasa, tetapi kini menjadi kenangan yang sangat berarti. Setiap sudutnya seolah menyimpan cerita dan perjalanan hidup yang membentuk diri saya hingga saat ini.
+</p>
+
+<p>
+Kaimana juga mengajarkan saya tentang kesederhanaan, kekeluargaan, dan rasa syukur. Keindahan alamnya, suasana lautnya, serta kehidupan masyarakat yang penuh kebersamaan menjadi bagian dari kenangan yang selalu ingin saya bawa ke mana pun saya pergi.
+</p>
+
+<p>
+Kini, ketika saya harus meninggalkan kampung halaman untuk menempuh pendidikan di tanah Jawa, ada banyak hal yang harus saya relakan untuk sementara waktu. Jarak membuat saya tidak bisa selalu berada di tengah keluarga dan orang-orang terdekat. Namun, sejauh apa pun saya melangkah, Kaimana akan selalu menjadi tempat untuk pulang, tempat saya mengingat dari mana saya berasal, dan alasan mengapa saya harus terus berjuang.
+</p>
+
+<p>
+Saya memiliki sebuah harapan besar: suatu hari nanti, saya bisa kembali ke tanah kelahiran dengan membawa ilmu, pengalaman, dan keberhasilan yang dapat memberikan manfaat bagi keluarga, masyarakat, dan daerah tercinta.
+</p>
+
+<p>
+Kaimana bukan hanya tempat saya dilahirkan, tetapi juga tempat di mana mimpi-mimpi saya pertama kali tumbuh. Sejauh apa pun perjalanan membawa saya, hati saya akan selalu memiliki jalan untuk pulang.
+</p>
+
+<div class="quote-highlight">
+“Once Kaimana, Always Kaimana. Home is where my story begins.”
+</div>
+
+</div>
+</div>
+</section>
+
+</div>
+</main>
+
+<!-- FOOTER -->
+
+<footer>
+&copy; 2026 <span>Fauzia Waita (Zhiaa)</span>
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+// ACCORDION DROPDOWN
+
+document.querySelectorAll('.accordion-header').forEach(header => {
+
+  header.addEventListener('click', () => {
+
+    const item = header.parentElement;
+    const content = item.querySelector('.accordion-content');
+    const wasOpen = item.classList.contains('active');
+
+    document.querySelectorAll('.accordion-item').forEach(el => {
+      el.classList.remove('active');
+      el.querySelector('.accordion-content').style.maxHeight = null;
+    });
+
+    if (!wasOpen) {
+      item.classList.add('active');
+      content.style.maxHeight = content.scrollHeight + 'px';
+    }
+
+  });
+
+});
+
+// GANTI FOTO PROFIL
+
+const avatarInput = document.getElementById('avatarInput');
+const profilePreview = document.getElementById('profilePreview');
+
+avatarInput.addEventListener('change', function() {
+
+  if (this.files[0]) {
+    const file = this.files[0];
+
+    if (!file.type.startsWith('image/')) {
+      alert('Silakan pilih file gambar.');
+      return;
+    }
+
+    profilePreview.src = URL.createObjectURL(file);
+  }
+
+});
+
+// GANTI FOTO KAIMANA
+
+const kaimanaInput = document.getElementById('kaimanaInput');
+const kaimanaPreview = document.getElementById('kaimanaPreview');
+
+kaimanaInput.addEventListener('change', function() {
+
+  if (this.files[0]) {
+    const file = this.files[0];
+
+    if (!file.type.startsWith('image/')) {
+      alert('Silakan pilih file gambar.');
+      return;
+    }
+
+    kaimanaPreview.src = URL.createObjectURL(file);
+  }
+
+});
+
+// PERBARUI TINGGI ACCORDION SAAT UKURAN LAYAR BERUBAH
+
+window.addEventListener('resize', () => {
+  const activeContent = document.querySelector(
+    '.accordion-item.active .accordion-content'
+  );
+
+  if (activeContent) {
+    activeContent.style.maxHeight =
+      activeContent.scrollHeight + 'px';
+  }
+});
+
+</script>
+
+</body>
+</html>
